@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 
-ds = pd.read_csv("sample-data copy.csv")
+ds = pd.read_csv("../data/sample-data.csv")
 
 tf = TfidfVectorizer(analyzer='word', ngram_range=(1, 3), min_df=0, stop_words='english')
 tfidf_matrix = tf.fit_transform(ds['description'])
@@ -36,4 +36,4 @@ def recommend(item_id, num):
         rank = rank + 1
 
 
-recommend(item_id=498, num=10)
+recommend(item_id=498, num=2)
